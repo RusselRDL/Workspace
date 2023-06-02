@@ -4,7 +4,7 @@ import random
 top = input("Type a number: ")
 
 #Check if digit is inputed and convert string to integer
-if top.isdigit():
+if int (top) or top.isdigit():
     top = int (top)
 
     #If not valid, quit
