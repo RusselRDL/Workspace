@@ -1,7 +1,3 @@
-#Quit function
-def quit():
-    return
-
 #Invalid input function
 def invalid():
     print()
@@ -9,6 +5,7 @@ def invalid():
     print("Please input a valid option next time!")
     print("--------------------------------------")
     print()
+    return
 
 #Main Calculator Function
 def calc():
@@ -99,23 +96,12 @@ def calc():
             invalid()
             continue
 
-#Function to ask if user wants to input another calculation
-def again():
-    user_input = input("Would you like to perform another calculation? (y/n) ").lower()
-    if user_input == "y":
-        print()
-        calc()
-    elif user_input == "n":
-        return
-    else:
-        print("Invalid input")
-        again()
-
 #Function for addition
 def add(x, y):
     ans = x + y
     print(x, "+", y, "=", ans)
-    again()
+    print()
+    return
 
 #Function for subtraction
 def sub(x,y):
@@ -123,28 +109,33 @@ def sub(x,y):
     ans2 = y - x
     print("A. ", x, "-", y, "=", ans1)
     print("B. ", y, "-", x, "=", ans2)
-    again()
+    print()
+    return
 
 #Function for multiplication
 def mult(x,y):
-    #Prompt user for option
-    print("Which option would you like to select? (A/B)")
-    print("A. Normal (x*y)")
-    print("B. Powers (x^y)")
-    user_input = input().upper()
+    while True:
+        #Prompt user for option
+        print("Which option would you like to select? (A/B)")
+        print("A. Normal (x*y)")
+        print("B. Powers (x^y)")
+        user_input = input().upper()
 
-    #Check options
-    if user_input == "A":
-        ans = x * y
-        print(x, "*", y, "=", ans)
-        again() 
-    elif user_input == "B":
-        pow(x,y)
-    elif user_input == "Q":
-        quit()
-    else:
-        print("Invalid option")
-        mult(x,y)
+        #Check options
+        if user_input == "A":
+            ans = x * y
+            print(x, "*", y, "=", ans)
+            print()
+            return
+        elif user_input == "B":
+            pow(x,y)
+            return
+        elif user_input == "Q":
+            quit()
+        else:
+            print("Invalid option!")
+            print()
+            continue
 
 #Function for division
 def div(x,y):
@@ -153,19 +144,22 @@ def div(x,y):
         ans2 = y/x
         print("A.", x, "/", y, "=", ans1)
         print("B.", y, "/", x, "=", ans2)
-        again()
+        print()
+        return
     
     elif x == 0:
         ans1 = x/y
         print("A.", x, "/", y, "=", ans1)
         print("B. Cannot divide by 0!")
-        again()
+        print()
+        return
     
     else:
         ans1 = y/x
         print("A.", y, "/", x, "=", ans1)
         print("B. Cannot divide by 0!")
-        again()
+        print()
+        return
 
 #Function for powers
 def pow(x,y):
@@ -173,7 +167,8 @@ def pow(x,y):
     ans2 = y**x
     print("A.", x, "^", y, "=", ans1)
     print("B.", y, "^", x, "=", ans2)
-    again()
+    print()
+    return
 
 #Welcome user
 name = input("Please enter your name: ").upper()
