@@ -1,7 +1,7 @@
 import requests
 
 #Need to create an acc on openweathermap.org and use own your own key
-API_KEY = "b0f1514bec003b24577ebd34cc6af7d1"
+API_KEY = "INSERT API KEY HERE"
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 #Prompt user to input city name
